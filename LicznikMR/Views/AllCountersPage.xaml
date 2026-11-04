@@ -1,0 +1,89 @@
+<?xml version="1.0" encoding="utf-8" ?>
+
+<ContentPage
+    xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    x:Class="LicznikMR.Views.AllCountersPage">
+
+    <Grid
+        RowDefinitions="Auto,*"
+        Padding="30"
+        RowSpacing="12">
+
+        <Button
+            Grid.Row="0"
+            Text="Dodaj Licznik"
+            Clicked="Add_Clicked"
+            BorderColor="LightBlue"
+            BorderWidth="8"
+            FontSize="25"
+            TextColor="LightBlue"
+            BackgroundColor="White"
+            WidthRequest="300"
+            HorizontalOptions="Center" />
+
+        <CollectionView
+            Grid.Row="1"
+            x:Name="CounterCollection"
+            ItemsSource="{Binding Counters}"
+            HorizontalOptions="Fill">
+
+            <CollectionView.ItemsLayout>
+                <GridItemsLayout
+                    Orientation="Vertical"
+                    Span="4"
+                    HorizontalItemSpacing="10"
+                    VerticalItemSpacing="10" />
+            </CollectionView.ItemsLayout>
+
+            <CollectionView.ItemTemplate>
+                <DataTemplate>
+
+                    <VerticalStackLayout
+                        BackgroundColor="BlueViolet"
+                        Margin="5"
+                        Padding="10">
+
+                        <Label
+                            Text="{Binding Name}"
+                            FontSize="35"
+                            HorizontalOptions="Center" />
+
+                        <Label
+                            Text="{Binding Value}"
+                            FontSize="35"
+                            HorizontalOptions="Center"
+                            Margin="20" />
+
+                        <HorizontalStackLayout
+                            Spacing="10"
+                            HorizontalOptions="Center">
+
+                            <Button
+                                Text="-"
+                                Clicked="Minus_Clicked"
+                                CommandParameter="{Binding}"
+                                BackgroundColor="LightBlue"
+                                FontSize="29"
+                                WidthRequest="100" />
+
+                            <Button
+                                Text="+"
+                                Clicked="Plus_Clicked"
+                                CommandParameter="{Binding}"
+                                BackgroundColor="LightGreen"
+                                FontSize="29"
+                                WidthRequest="100" />
+
+                        </HorizontalStackLayout>
+
+                    </VerticalStackLayout>
+
+                </DataTemplate>
+            </CollectionView.ItemTemplate>
+
+        </CollectionView>
+
+    </Grid>
+
+</ContentPage>

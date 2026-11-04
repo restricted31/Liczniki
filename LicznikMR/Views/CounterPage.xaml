@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="utf-8" ?>
+
+<ContentPage
+    xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    x:Class="LicznikMR.Views.CounterPage">
+
+    <VerticalStackLayout
+        Padding="30"
+        Spacing="12">
+
+        <Entry
+            x:Name="NameEntry"
+            Placeholder="Podaj nazwe licznika"
+            WidthRequest="300"
+            FontSize="20"
+            Keyboard="Text" />
+
+        <Entry
+            x:Name="ValueEntry"
+            Placeholder="Podaj poczatkowa wartosc licznika"
+            WidthRequest="300"
+            FontSize="20"
+            Keyboard="Numeric" />
+
+        <Button
+            Text="Zapisz"
+            Clicked="Save_Clicked"
+            WidthRequest="300" />
+
+    </VerticalStackLayout>
+
+</ContentPage>
